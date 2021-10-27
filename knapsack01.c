@@ -13,7 +13,12 @@ int knapSack(int n,int wt[],int val[],int W)
 	if(n==0 || W<=0)
 		return 0;
 	else
-		return max((val[n-1]+knapSack(n-1,wt,val,W-wt[n-1])),knapSack(n-1,wt,val,W));
+	{
+		if((W-wt[n-1])>=0)
+			return max((val[n-1]+knapSack(n-1,wt,val,W-wt[n-1])),knapSack(n-1,wt,val,W));
+		else
+			return knapSack(n-1,wt,val,W);
+	}
 }
 
 int main()
