@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int k[100][100];
+int k[n+1][W+1];
 
 int max(int a,int b)
 {
@@ -15,7 +15,7 @@ int knapSack(int n,int wt[],int val[],int W)
 {
 	if(W<=0 || n==0)
 		return 0;
-	if(k[n][W]!=0)
+	if(k[n][W]!=-1)
 		return k[n][W];
 	else
 	{
@@ -41,5 +41,11 @@ int main()
     	scanf("%d",&val[i]);
     printf("Enter knapsack weight:\n");
     scanf("%d",&W);
+    for(int i=0;i<n+1;i++){
+	for(int j=0;j<W+1;j++){
+		k[i][j]=-1;
+
+		}
+	}
     printf("Ans=%d\n", knapSack(n,wt,val,W));
 }
